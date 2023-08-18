@@ -2,9 +2,14 @@ from turtle import Turtle
 
 
 class Snake:
-    def __init__(self):
+    def __init__(self, number_of_snake_segments=3):
+        """
+        Creates a Snake of length passed as argument and places it onto the screen
+
+        :param number_of_snake_segments: Optional argument. Creates a snake of length 3 by default
+        """
         self.segments = []
-        number_of_snake_segments = 5  # Set the length of the snake at game start
+        # number_of_snake_segments = 3  # Set the length of the snake at game start
         # Create the snake segments
         for _ in range(0, number_of_snake_segments):
             snake_segment = Turtle(shape="square")
@@ -41,8 +46,12 @@ class Snake:
         else:
             self.segments[0].setheading(270)
 
-    # Continuously moves the head and makes the rest of the body follow it
     def move_body(self):
+        """
+        Continuously moves the head of the snake and makes the rest of the body follow it
+
+        :return: None
+        """
         prev_coordinates = []
         for obj in self.segments:
             prev_coordinates.append((obj.xcor(), obj.ycor()))

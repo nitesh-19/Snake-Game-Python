@@ -8,7 +8,7 @@ screen.bgcolor("black")  # Set the game background color
 screen.title("Snake Game")
 screen.tracer(0)
 
-python = Snake()
+python = Snake(10)
 
 screen.update()
 
