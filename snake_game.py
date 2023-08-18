@@ -10,7 +10,6 @@ segments = []
 
 
 def up():
-
     if segments[0].heading() == 270:
         pass
     else:
@@ -18,15 +17,24 @@ def up():
 
 
 def left():
-    segments[0].setheading(180)
+    if segments[0].heading() == 0:
+        pass
+    else:
+        segments[0].setheading(180)
 
 
 def right():
-    segments[0].setheading(0)
+    if segments[0].heading() == 180:
+        pass
+    else:
+        segments[0].setheading(0)
 
 
 def down():
-    segments[0].setheading(270)
+    if segments[0].heading() == 90:
+        pass
+    else:
+        segments[0].setheading(270)
 
 
 def move_body():
