@@ -10,4 +10,7 @@ class Food(Turtle):
         self.color("green")
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.speed("fastest")
-        self.goto(randrange(-280, 280, 10), randrange(-280, 280, 10))
+        self.goto(randrange(-280, 280, 20), randrange(-280, 280, 20))
+
+
+

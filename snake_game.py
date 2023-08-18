@@ -23,5 +23,9 @@ while game_on:
     screen.onkeypress(fun=python.right, key="Right")
     screen.onkeypress(fun=python.down, key="Down")
     time.sleep(0.1)
+    if python.head.distance(food) <= 10:
+        food.hideturtle()
+        food = Food()
+
     screen.update()
 screen.exitonclick()
