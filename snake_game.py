@@ -29,6 +29,8 @@ while game_on:
     if python.head.distance(food) <= 10:
         food.spawn_again()
         scoreboard.refresh()
-
+    if python.head.xcor() > 280 or python.head.xcor() < -280 or python.head.ycor() > 280 or python.head.ycor() < -280:
+        scoreboard.game_over()
+        game_on = False
     screen.update()
 screen.exitonclick()
