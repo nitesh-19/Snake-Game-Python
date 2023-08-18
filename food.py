@@ -10,6 +10,9 @@ class Food(Turtle):
         self.color("green")
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.speed("fastest")
+        self.spawn_again()
+
+    def spawn_again(self):
         self.goto(randrange(-280, 280, 20), randrange(-280, 280, 20))
 
 
