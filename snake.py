@@ -1,4 +1,6 @@
 from turtle import Turtle
+import time
+MOVE_DISTANCE = 20
 
 
 class Snake:
@@ -16,35 +18,36 @@ class Snake:
             snake_segment.color("white")
             snake_segment.penup()
             self.segments.append(snake_segment)
-
+        self.head = self.segments[0]
+        self.head.color("red")
         # Place snake at starting position
         for index in range(0, len(self.segments)):
-            self.segments[index].setpos((-index * 20, 0))
+            self.segments[index].setpos((index * -20, 0))
 
     # Key press methods to change the direction of the snake's heading
     def up(self):
-        if self.segments[0].heading() == 270:
+        if self.head.heading() == 270:
             pass
         else:
-            self.segments[0].setheading(90)
+            self.head.setheading(90)
 
     def left(self):
-        if self.segments[0].heading() == 0:
+        if self.head.heading() == 0:
             pass
         else:
-            self.segments[0].setheading(180)
+            self.head.setheading(180)
 
     def right(self):
-        if self.segments[0].heading() == 180:
+        if self.head.heading() == 180:
             pass
         else:
-            self.segments[0].setheading(0)
+            self.head.setheading(0)
 
     def down(self):
-        if self.segments[0].heading() == 90:
+        if self.head.heading() == 90:
             pass
         else:
-            self.segments[0].setheading(270)
+            self.head.setheading(270)
 
     def move_body(self):
         """
@@ -55,6 +58,7 @@ class Snake:
         prev_coordinates = []
         for obj in self.segments:
             prev_coordinates.append((obj.xcor(), obj.ycor()))
-        self.segments[0].forward(20)
+
+        self.head.forward(MOVE_DISTANCE)
         for i in range(0, len(self.segments) - 1):
             self.segments[i + 1].goto(prev_coordinates[i])
