@@ -3,7 +3,7 @@ import time
 
 screen = Screen()
 screen.setup(height=600, width=600)
-screen.bgcolor("black")
+screen.bgcolor("black")  # Set the game background color
 screen.title("Snake Game")
 screen.tracer(0)
 segments = []
@@ -65,6 +65,7 @@ for index in range(0, len(segments)):
 game_on = True
 screen.listen()
 while game_on:
+    # Move the snake and change its heading when respective keys are pressed
     move_body()
     screen.onkeypress(fun=up, key="Up")
     screen.onkeypress(fun=left, key="Left")
