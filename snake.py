@@ -13,12 +13,7 @@ class Snake:
         """
         self.segments = []
         # number_of_snake_segments = 3  # Set the length of the snake at game start
-        # Create the snake segments
-        for _ in range(0, number_of_snake_segments):
-            snake_segment = Turtle(shape="square")
-            snake_segment.color("white")
-            snake_segment.penup()
-            self.segments.append(snake_segment)
+        self.create_segments(number_of_snake_segments)
         self.head = self.segments[0]
         self.head.color("red")
         # Place snake at starting position
@@ -65,4 +60,13 @@ class Snake:
             self.segments[i + 1].goto(prev_coordinates[i])
 
     def grow_snake(self):
-       self.segments.append()
+        self.create_segments(1)
+        self.segments[-1].setpos(self.segments[-2].position())
+
+    def create_segments(self, number_of_snake_segments):
+        # Create the snake segments
+        for _ in range(0, number_of_snake_segments):
+            snake_segment = Turtle(shape="square")
+            snake_segment.color("white")
+            snake_segment.penup()
+            self.segments.append(snake_segment)
