@@ -15,7 +15,7 @@ python = Snake(3)
 food = Food()
 screen.update()
 scoreboard = Scoreboard()
-score = 0
+
 game_on = True
 screen.listen()
 while game_on:
@@ -28,8 +28,7 @@ while game_on:
     time.sleep(0.1)
     if python.head.distance(food) <= 10:
         food.spawn_again()
-        score += 1
-        scoreboard.refresh(score=score)
+        scoreboard.refresh()
 
     screen.update()
 screen.exitonclick()
