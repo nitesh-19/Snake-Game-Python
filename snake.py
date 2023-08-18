@@ -1,5 +1,6 @@
 from turtle import Turtle
 import time
+
 MOVE_DISTANCE = 20
 
 
@@ -62,3 +63,6 @@ class Snake:
         self.head.forward(MOVE_DISTANCE)
         for i in range(0, len(self.segments) - 1):
             self.segments[i + 1].goto(prev_coordinates[i])
+
+    def grow_snake(self):
+       self.segments.append()
