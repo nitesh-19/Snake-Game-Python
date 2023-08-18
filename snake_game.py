@@ -9,6 +9,7 @@ screen.tracer(0)
 segments = []
 
 
+# Key press methods to change the direction of the snake's heading
 def up():
     if segments[0].heading() == 270:
         pass
@@ -37,6 +38,7 @@ def down():
         segments[0].setheading(270)
 
 
+# Continuously moves the head and makes the rest of the body follow it
 def move_body():
     prev_coordinates = []
     for obj in segments:
@@ -44,21 +46,22 @@ def move_body():
     segments[0].forward(20)
     for i in range(0, len(segments) - 1):
         segments[i + 1].goto(prev_coordinates[i])
-        # screen.update()
 
 
-number_of_turtles = 5
-for _ in range(0, number_of_turtles):
-    new_turtle = Turtle(shape="square")
-    new_turtle.color("white")
-    new_turtle.penup()
-    segments.append(new_turtle)
-segments[1].color("green")
-segments[2].color("blue")
+number_of_snake_segments = 5  # Set the length of the snake at game start
 
+# Create the snake segments
+for _ in range(0, number_of_snake_segments):
+    snake_segment = Turtle(shape="square")
+    snake_segment.color("white")
+    snake_segment.penup()
+    segments.append(snake_segment)
+
+# Place snake at starting position
 for index in range(0, len(segments)):
     segments[index].setpos((-index * 20, 0))
     screen.update()
+
 game_on = True
 screen.listen()
 while game_on:
