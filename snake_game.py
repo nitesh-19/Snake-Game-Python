@@ -28,7 +28,7 @@ while game_on:
     if python.head.distance(food) <= 10:
         food.spawn_again()
         python.grow_snake()
-        time.sleep(0.1)
+        # time.sleep(0.1)
 
         screen.update()
 
@@ -39,12 +39,10 @@ while game_on:
         game_on = False
 
     # Detect collision with tail.
-    for segment in python.segments:
+    for segment in python.segments[1:]:
         screen.update()
 
-        if segment == python.head:
-            pass
-        elif python.head.distance(segment) < 10:
+        if python.head.distance(segment) < 10:
             game_on = False
             scoreboard.game_over()
 
