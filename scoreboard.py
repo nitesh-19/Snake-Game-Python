@@ -16,13 +16,13 @@ class Scoreboard(Turtle):
     def refresh(self):
         self.clear()
         self.score += 1
-        self.write(f"Score: {self.score}", align="center")
         if self.score > self.highscore:
             self.highscore = self.score
+        self.write(f"Score: {self.score}    Highscore: {self.highscore}", align="center", font=('calibri', 10, 'bold'))
         self.goto(0, 280)
 
     def game_over(self):
         self.goto(0, 0)
-        self.write("GAME OVER", align="center")
+        self.write("GAME OVER", align="center", font=('Times', 20, 'bold'))
         with open("data.txt", "w") as file:
             file.write(str(self.highscore))
