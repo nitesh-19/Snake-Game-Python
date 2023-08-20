@@ -15,7 +15,7 @@ class Snake:
         # number_of_snake_segments = 3  # Set the length of the snake at game start
         self.create_segments(number_of_snake_segments)
         self.head = self.segments[0]
-        self.head.color("red")
+        self.head.color("azure3")
         # Place snake at starting position
         for index in range(0, len(self.segments)):
             self.segments[index].setpos((index * -20, 0))
