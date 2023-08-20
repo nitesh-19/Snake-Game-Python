@@ -17,13 +17,13 @@ scoreboard = Scoreboard()
 
 game_on = True
 screen.listen()
+screen.onkeypress(fun=python.up, key="Up")
+screen.onkeypress(fun=python.left, key="Left")
+screen.onkeypress(fun=python.right, key="Right")
+screen.onkeypress(fun=python.down, key="Down")
 while game_on:
     # Move the snake and change its heading when respective keys are pressed
     python.move_body()
-    screen.onkeypress(fun=python.up, key="Up")
-    screen.onkeypress(fun=python.left, key="Left")
-    screen.onkeypress(fun=python.right, key="Right")
-    screen.onkeypress(fun=python.down, key="Down")
     time.sleep(0.1)
     if python.head.distance(food) <= 10:
         food.spawn_again()
